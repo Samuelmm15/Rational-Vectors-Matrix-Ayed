@@ -206,17 +206,34 @@ vector_t<T>::read(istream& is)
 
 
 // FASE II: producto escalar
+
+// Implementación del método que calcula el producto escalar de dos vectores, haciendo uso de cualquier tipo de dato
 template<class T>
 T
 scal_prod(const vector_t<T>& v, const vector_t<T>& w)
 {
-  // rellenar código
+  // Producto escalar
+  T prod = 0;
+  // Comprobación de que los vectores tienen el mismo tamaño
+  assert(v.get_size() == w.get_size());
+  // Cálculo del producto escalar
+  for (int i = 0; i < v.get_size(); i++)
+    prod = prod + v[i] * w[i];
+  return prod;
 }
 
 
 
+// Implementación del método que calcula el producto escalar de dos vectores, haciendo uso de números racionales
 double
 scal_prod(const vector_t<rational_t>& v, const vector_t<rational_t>& w)
 {
-  // rellenar código 
+  // Producto escalar
+  double prod = 0;
+  // Comprobación de que los vectores tienen el mismo tamaño
+  assert(v.get_size() == w.get_size());
+  // Cálculo del producto escalar
+  for (int i = 0; i < v.get_size(); i++)
+    prod = prod + v[i].value() * w[i].value();
+  return prod;
 }
