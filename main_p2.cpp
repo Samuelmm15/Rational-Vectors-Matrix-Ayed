@@ -56,6 +56,10 @@ int main()
   y.read(), y.write();
   
   cout << "Producto escalar de vector_t<rational_t>: " << scal_prod(x, y) << endl << endl;
+
+  // Mostrar el resultado de la modifiación por pantalla
+  cout << "El resultado del vector x es: " << x.Modification_Function() << endl;
+  cout << "El resultado del vector y es: " << y.Modification_Function() << endl;
   
   
   // FASE III

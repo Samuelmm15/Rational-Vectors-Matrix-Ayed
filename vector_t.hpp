@@ -49,6 +49,9 @@ public:
   void write(ostream& = cout) const;
   void read(istream& = cin);
 
+  // Modificación de la clase vector_t
+  rational_t Modification_Function(void);
+
 private:
   // Puntero que apunta al vector
   T *v_;
@@ -236,4 +239,17 @@ scal_prod(const vector_t<rational_t>& v, const vector_t<rational_t>& w)
   for (int i = 0; i < v.get_size(); i++)
     prod = prod + v[i].value() * w[i].value();
   return prod;
+}
+
+// Implementación de la modificación
+template<class T>
+rational_t
+vector_t<T>::Modification_Function(void)
+{
+  // Devolver la suma de las celdas múltiplo de 3 del vector que llama la función
+  rational_t sumResult = 0;
+  for (int i = 0; i < get_size(); i++)
+    if (i % 3 == 0)
+      sumResult = sumResult + at(i);
+  return sumResult;
 }
